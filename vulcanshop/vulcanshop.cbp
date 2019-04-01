@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Repair.cpp" />
+		<Unit filename="Repair.h" />
+		<Unit filename="Worker.cpp" />
+		<Unit filename="Worker.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
