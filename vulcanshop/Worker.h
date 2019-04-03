@@ -4,12 +4,10 @@
 class Worker{
 private:
     int id, salary;
-    string name;
+    std::string name;
 
 public:
-    Worker(int i, int s, string n){
-        id=i; salary=s; name=n;
-    }
+    Worker(int i, int s, std::string n);
 
     void showData();
     void changeSalary();

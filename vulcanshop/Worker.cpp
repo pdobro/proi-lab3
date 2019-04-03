@@ -3,6 +3,10 @@
 
 using namespace std;
 
+Worker::Worker(int i, int s, string n){
+        id=i; salary=s; name=n;
+    }
+
 void Worker::showData(){
     cout<<"ID:\t"<<id<<endl;
     cout<<"Name:\t"<<name<<endl;

@@ -5,13 +5,11 @@ template <typename T>
 class Repair{
 private:
     T date;
-    string car;
+    std::string car;
     int income;
 
 public:
-    Repair(T d, string c, int i){
-        date=d; car=c; income=i;
-    }
+    Repair(T d, std::string c, int i);
 
     void showData();
 };
