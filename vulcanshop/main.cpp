@@ -1,21 +1,14 @@
 #include <iostream>
-#include <vector>
-#include "Worker.h"
-#include "Repair.h"
-#include "Car.h"
+#include <string>
+#include "Worker.hpp"
+#include "Workshop.hpp"
+#include "Car.hpp"
+#include "functions.hpp"
 
 using namespace std;
 
 int main(){
-    cout << "Welcome to the VolcanShop" << endl;
-
-    vector<Worker> w;
-    vector<Car> c;
-
-    //ITERATOR
-    /*for(auto i = w.begin(); i!=w.end(); ++i){
-        i.showData();
-    }*/
-
+    cout << "Welcome to the VolcanShop\n" << endl;
+    showMenu();
     return 0;
 }

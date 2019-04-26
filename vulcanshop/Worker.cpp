@@ -1,21 +1,24 @@
 #include <iostream>
-#include "Worker.h"
+#include "Worker.hpp"
 
 using namespace std;
 
-Worker::Worker(int i, int s, string n){
-        id=i; salary=s; name=n;
-    }
+Worker::Worker(string n, int s){
+    this->name = n;
+    this->salary = s;
+    cout << "New worker employed!" <<endl;
+}
+
+Worker::~Worker(){
+    cout << name <<" was given a sack." <<endl;
+}
 
 void Worker::showData(){
-    cout<<"ID:\t"<<id<<endl;
     cout<<"Name:\t"<<name<<endl;
     cout<<"Salary:\t"<<salary<<endl;
 }
 
-void Worker::changeSalary(){
-    int change;
-    cout<<"Change salary: "<<endl;
-    cin>>change;
-    salary=change;
+ostream& operator<<(ostream& os, Worker& w){
+    os << w.name << "\tsalary: " << w.salary;
+    return os;
 }
