@@ -1,7 +1,7 @@
 #ifndef CAR_HPP
 #define CAR_HPP
 
-enum class CarBrand { AUDI = 0, BMW, MERCEDES, VOLKSVAGEN, TOYOTA};
+enum class CarBrand { AUDI = 0, BMW, MERCEDES, VOLKSWAGEN, TOYOTA};
 
 class Car{
 private:
@@ -14,7 +14,7 @@ public:
     ~Car();
 
     void showData();
-    friend std::ostream& operator<<(std::ostream& os, Car c);
+    friend std::ostream& operator<<(std::ostream& os, Car& c);
 };
 
 #endif

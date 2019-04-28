@@ -1,5 +1,6 @@
 #include <iostream>
-#include "Car.h"
+#include <string>
+#include "Car.hpp"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ Car::Car(CarBrand b, string m, int y){
 }
 
 Car::~Car(){
-    cout << brand << " " << model << " " << year << " deleted!" <<endl;
+    cout << model << " " << year << " deleted!" <<endl;
 }
 
 void Car::showData(){
@@ -26,8 +27,8 @@ void Car::showData(){
         case CarBrand::MERCEDES:
             cout << "Mercedes";
             break;
-        case CarBrand::VOLKSVAGEN:
-            cout << "Volksvagen";
+        case CarBrand::VOLKSWAGEN:
+            cout << "Volkswagen";
             break;
         case CarBrand::TOYOTA:
             cout << "Toyota";
@@ -41,19 +42,19 @@ void Car::showData(){
 ostream& operator<<(ostream& os, Car& c){
 	switch(c.brand){
 		case CarBrand::AUDI:
-			os << " Audi";
+			os << "Audi ";
 			break;
 		case CarBrand::BMW:
-			os << " BMW";
+			os << "BMW ";
 			break;
 		case CarBrand::MERCEDES:
-			os << " Mercedes";
+			os << "Mercedes ";
 			break;
-        case CarBrand::VOLKSVAGEN:
-            os << " Volksvagen";
+        case CarBrand::VOLKSWAGEN:
+            os << "Volkswagen ";
             break;
         case CarBrand::TOYOTA:
-            os << " Toyota";
+            os << "Toyota ";
             break;
 	}
     os << c.model << " " << c.year;

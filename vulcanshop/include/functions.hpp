@@ -2,5 +2,6 @@
 #define FUNCTIONS_HPP
 
 int showMenu();
+void exitProgram();
 
 #endif

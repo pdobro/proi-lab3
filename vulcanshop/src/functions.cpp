@@ -4,7 +4,9 @@ using namespace std;
 
 int showMenu(){
 
-    cout << "# # # # M E N U # # # # #" <<endl;
+    int userChoice;
+
+    cout << "\n# # # # M E N U # # # # #" <<endl;
     cout << "1. Add new worker" <<endl;
     cout << "2. Add new car" <<endl;
     cout << "3. Show list of workers" <<endl;
@@ -14,4 +16,10 @@ int showMenu(){
     cin >> userChoice;
 
     return userChoice;
+}
+
+void exitProgram(){
+    cout << "Thank You for using the VulcanShop!" << endl;
+    cout << "See You next time..." << endl;
+    exit(0);
 }

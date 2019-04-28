@@ -12,7 +12,7 @@ public:
     ~Workshop(){
         for( typename std::vector<T>::iterator iter = vect.begin(); iter != vect.end(); ++iter)
             delete *iter;
-        vect.clear()
+        vect.clear();
         std::cout << "All data deleted.\n";
     }
 
@@ -29,12 +29,10 @@ public:
             int number = 1;
             std::cout<<"List of objects:\n";
             for(typename std::vector<T>::iterator iter = vect.begin(); iter != vect.end(); ++iter)
-            std::cout << n <<") " << **iter <<std::endl;
+                std::cout << number <<") " << **iter <<std::endl;
         }
 
     }
-
-
-}
+};
 
 #endif
