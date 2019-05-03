@@ -18,7 +18,7 @@ public:
 
     void add(T object){
         vect.push_back(object);
-        std::cout<<"Object added successfully!";
+        std::cout<<"Object added successfully!\n";
     }
 
     void showData(){
