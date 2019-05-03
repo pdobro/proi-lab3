@@ -11,13 +11,14 @@ int main(){
     int carYear, numOfBrand, workerSalary;
     string carModel, workerName;
 
+
     Workshop<Worker*> workers;
     Worker* newWorker;
 
     Workshop<Car*> cars;
     Car* newCar;
 
-    cout << "Welcome to the VolcanShop\n" << endl;
+    cout << "Welcome to the VolcanShop" << endl;
     int userChoice = showMenu();
 
     while(userChoice != 5){
@@ -27,7 +28,7 @@ int main(){
                 cin >> workerName;
                 cout << "Type in the worker's salary: ";
                 cin >> workerSalary;
-                newWorker = new Worker(workerName, workerSalary);
+                newWorker = new Worker(workerName, salaryToString(workerSalary));
                 workers.add(newWorker);
             break;
             case 2:

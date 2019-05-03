@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Worker::Worker(string n, int s){
+Worker::Worker(string n, string s){
     this->name = n;
     this->salary = s;
     cout << "New worker employed!" <<endl;
