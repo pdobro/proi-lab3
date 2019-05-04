@@ -60,4 +60,3 @@ ostream& operator<<(ostream& os, Car& c){
     os << c.model << " " << c.year;
     return os;
 }
-

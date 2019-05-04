@@ -11,7 +11,6 @@ int main(){
     int carYear, numOfBrand, workerSalary;
     string carModel, workerName;
 
-
     Workshop<Worker*> workers;
     Worker* newWorker;
 
@@ -19,11 +18,11 @@ int main(){
     Car* newCar;
 
     cout << "Welcome to the VolcanShop" << endl;
-    int userChoice = showMenu();
+    char userChoice = showMenuAndGetChoice();
 
-    while(userChoice != 5){
+    while(userChoice != '5'){
         switch(userChoice){
-            case 1:
+            case '1':
                 cout << "Type in a name for the new worker: ";
                 cin >> workerName;
                 cout << "Type in the worker's salary: ";
@@ -31,7 +30,7 @@ int main(){
                 newWorker = new Worker(workerName, salaryToString(workerSalary));
                 workers.add(newWorker);
             break;
-            case 2:
+            case '2':
                 cout << "Choose the car's brand: 0-Audi, 1-BMW, 2-Mercedes, 3-Volkswagen, 4-Toyota: ";
                 cin >> numOfBrand;
                 cout << "Type in the car's model: ";
@@ -41,13 +40,13 @@ int main(){
                 newCar = new Car((CarBrand)numOfBrand, carModel, carYear);
                 cars.add(newCar);
             break;
-            case 3:
+            case '3':
                 workers.showData();
             break;
-            case 4:
+            case '4':
                 cars.showData();
             break;
-            case 5:
+            case '5':
                 exitProgram();
             break;
 
@@ -56,7 +55,7 @@ int main(){
             break;
         }//switch
 
-        userChoice = showMenu();
+        userChoice = showMenuAndGetChoice();
 
     }//while
 
