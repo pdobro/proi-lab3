@@ -1,3 +1,8 @@
+/*
+First name: Arkadiusz       Leader: W. Kusmirek
+Last name:  Dawid           Project 2
+Student ID: 300199          Topic: Tire Center (Warsztat wulkanizacyjny)
+*/
 #ifndef CAR_HPP
 #define CAR_HPP
 
@@ -11,6 +16,7 @@ private:
 
 public:
     Car(CarBrand b, std::string m, int y);
+    Car(CarBrand b, std::string m);
     ~Car();
 
     void showData();

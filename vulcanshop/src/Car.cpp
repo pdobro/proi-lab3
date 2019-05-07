@@ -1,3 +1,8 @@
+/*
+First name: Arkadiusz       Leader: W. Kusmirek
+Last name:  Dawid           Project 2
+Student ID: 300199          Topic: Tire Center (Warsztat wulkanizacyjny)
+*/
 #include <iostream>
 #include <string>
 #include "Car.hpp"
@@ -8,6 +13,13 @@ Car::Car(CarBrand b, string m, int y){
     this->brand = b;
     this->model = m;
     this->year = y;
+    cout << "New car added!"<<endl;
+}
+
+Car::Car(CarBrand b, string m){
+    this->brand = b;
+    this->model = m;
+    this->year = 2019;
     cout << "New car added!"<<endl;
 }
 

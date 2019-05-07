@@ -1,3 +1,8 @@
+/*
+First name: Arkadiusz       Leader: W. Kusmirek
+Last name:  Dawid           Project 2
+Student ID: 300199          Topic: Tire Center (Warsztat wulkanizacyjny)
+*/
 #ifndef WORKSHOP_HPP
 #define WORKSHOP_HPP
 
