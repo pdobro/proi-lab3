@@ -1,26 +1,21 @@
-/*
-First name: Arkadiusz       Leader: W. Kusmirek
-Last name:  Dawid           Project 2
-Student ID: 300199          Topic: Tire Center (Warsztat wulkanizacyjny)
-*/
 #ifndef CAR_HPP
 #define CAR_HPP
 
-enum class CarBrand { AUDI = 0, BMW, MERCEDES, VOLKSWAGEN, TOYOTA};
+#include "Vehicle.hpp"
 
-class Car{
+enum class Brand { AUDI = 0, BMW, MERCEDES, VOLKSWAGEN, TOYOTA};
+
+class Car : public Vehicle
+{
 private:
-    CarBrand brand;
-    std::string model;
-    int year;
+    Brand brand;
 
 public:
-    Car(CarBrand b, std::string m, int y);
-    Car(CarBrand b, std::string m);
+    Car();
+    Car(Brand b, std::string m, int y);
     ~Car();
 
     void showData();
-    friend std::ostream& operator<<(std::ostream& os, Car& c);
 };
 
 #endif

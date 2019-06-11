@@ -1,8 +1,3 @@
-/*
-First name: Arkadiusz       Leader: W. Kusmirek
-Last name:  Dawid           Project 2
-Student ID: 300199          Topic: Tire Center (Warsztat wulkanizacyjny)
-*/
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -10,66 +5,43 @@ Student ID: 300199          Topic: Tire Center (Warsztat wulkanizacyjny)
 
 using namespace std;
 
-Car::Car(CarBrand b, string m, int y){
-    this->brand = b;
-    this->model = m;
-    this->year = y;
+Car::Car()
+{
+    this->brand = Brand::AUDI;
     cout << "New car added!"<<endl;
 }
 
-Car::Car(CarBrand b, string m){
-    this->brand = b;
-    this->model = m;
-    this->year = 2019;
-    cout << "New car added!"<<endl;
+Car::Car(Brand b, std::string m, int y) : Vehicle::Vehicle(m, y)
+{
+    this-> brand = b;
+    cout << "New car added!" << endl;
 }
 
-Car::~Car(){
-    cout << model << " " << year << " deleted!" <<endl;
+
+Car::~Car()
+{
+    
 }
+
 
 void Car::showData(){
     cout << "Brand:\t";
     switch(brand){
-        case CarBrand::AUDI:
+        case Brand::AUDI:
             cout << "Audi";
             break;
-        case CarBrand::BMW:
+        case Brand::BMW:
             cout << "BMW";
             break;
-        case CarBrand::MERCEDES:
+        case Brand::MERCEDES:
             cout << "Mercedes";
             break;
-        case CarBrand::VOLKSWAGEN:
+        case Brand::VOLKSWAGEN:
             cout << "Volkswagen";
             break;
-        case CarBrand::TOYOTA:
+        case Brand::TOYOTA:
             cout << "Toyota";
             break;
     }
-
-    cout <<"\nModel:\t"<<model<<endl;
-    cout <<"Year:\t"<<year<<endl;
-}
-
-ostream& operator<<(ostream& os, Car& c){
-	switch(c.brand){
-		case CarBrand::AUDI:
-			os << "Audi ";
-			break;
-		case CarBrand::BMW:
-			os << "BMW ";
-			break;
-		case CarBrand::MERCEDES:
-			os << "Mercedes ";
-			break;
-        case CarBrand::VOLKSWAGEN:
-            os << "Volkswagen ";
-            break;
-        case CarBrand::TOYOTA:
-            os << "Toyota ";
-            break;
-	}
-    os << c.model << " " << c.year;
-    return os;
+    Vehicle::showData();
 }

@@ -1,31 +1,32 @@
-/*
-First name: Arkadiusz       Leader: W. Kusmirek
-Last name:  Dawid           Project 2
-Student ID: 300199          Topic: Tire Center (Warsztat wulkanizacyjny)
-*/
+
 #include <iostream>
 #include <string>
 #include "Worker.hpp"
 #include "Workshop.hpp"
 #include "Car.hpp"
 #include "functions.hpp"
+#include "Vehicle.hpp"
+#include "Motorbike.hpp"
+#include <vector>
 
 using namespace std;
 
-int main(){
-    int carYear, numOfBrand, workerSalary;
-    string carModel, workerName;
+ 
+ int main(){
+    int Year, numOfBrand, workerSalary;
+    string Model, workerName;
 
     Workshop<Worker*> workers;
     Worker* newWorker;
 
-    Workshop<Car*> cars;
-    Car* newCar;
+    vector<Car> cars;
+
+    vector<Motorbike> motors;
 
     cout << "Welcome to the VolcanShop" << endl;
     char userChoice = showMenuAndGetChoice();
 
-    while(userChoice != '5'){
+    while(userChoice != '7'){
         switch(userChoice){
             case '1':
                 cout << "Type in a name for the new worker: ";
@@ -36,22 +37,70 @@ int main(){
                 workers.add(newWorker);
             break;
             case '2':
+            {
                 cout << "Choose the car's brand: 0-Audi, 1-BMW, 2-Mercedes, 3-Volkswagen, 4-Toyota: ";
                 cin >> numOfBrand;
                 cout << "Type in the car's model: ";
-                cin >> carModel;
+                cin >> Model;
                 cout << "Type in the car's production year: ";
-                cin >> carYear;
-                newCar = new Car((CarBrand)numOfBrand, carModel, carYear);
-                cars.add(newCar);
+                cin >> Year;
+                try
+                {
+                Car nCar((Brand)numOfBrand, Model, Year);
+                cars.push_back(nCar);
+                }
+                catch (string e)
+                {
+                    cout << "error" << e << endl;
+                }
+
+
+            }
             break;
             case '3':
-                workers.showData();
+            {
+                cout << "Choose the motor brand: 0-BMW, 1-Suzuki, 2-Kawasaki: ";
+                cin >> numOfBrand;
+                cout << "Type in the motor model: ";
+                cin >> Model;
+                cout << "Type in the motor production year: ";
+                cin >> Year;
+                try
+                {
+                Motorbike nMotor((motorBrand)numOfBrand, Model, Year);
+                motors.push_back(nMotor);
+                }
+                catch (string e)
+                {
+                    cout << "error" << e << endl;
+                }
+
+
+            }
             break;
             case '4':
-                cars.showData();
+                workers.showData();
             break;
             case '5':
+            {
+                vector<Car>::iterator it;
+                for(it = cars.begin(); it != cars.end(); ++it)
+                {
+                    it->showData();
+                }
+            }
+            break;
+
+            case '6':
+            {
+                vector<Motorbike>::iterator it;
+                for(it = motors.begin(); it != motors.end(); ++it)
+                {
+                    it->showData();
+                }
+            }
+            break;
+            case '7':
                 exitProgram();
             break;
 
@@ -68,3 +117,4 @@ int main(){
 
     return 0;
 }
+
