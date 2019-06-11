@@ -6,7 +6,7 @@ TARGETDIR = bin
 TESTDIR = test
 TARGET = program
 TESTTARGET = test
-TESTSOURCE = OldBookTest.cpp
+TESTSOURCE = Test.cpp
 
 SRCEXT = cpp
 SOURCES = $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
