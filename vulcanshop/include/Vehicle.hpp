@@ -11,7 +11,8 @@ class Vehicle
     Vehicle();
     Vehicle(std::string m, int y);
     ~Vehicle();
-
+    
+    void getYear();
     virtual void showData();
 };
 

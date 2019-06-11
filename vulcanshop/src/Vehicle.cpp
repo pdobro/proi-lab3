@@ -21,21 +21,16 @@ Vehicle::Vehicle(string m , int y)
         string exception = "wrong year!";
         throw exception;
     }
-    /*
-    try
-    {
-            this -> year = y;
-
-    }
-    catch (string e)
-    {
-        cout << e << endl;
-    }
-    */
+  
 }
 
 Vehicle::~Vehicle()
 {}
+
+void Vehicle::getYear()
+{
+    cout<<year;
+}
 
 void Vehicle::showData()
 {

@@ -6,7 +6,7 @@ TARGETDIR = bin
 TESTDIR = test
 TARGET = program
 TESTTARGET = test
-TESTSOURCE = Test.cpp
+TESTSOURCE = carTest.cpp
 
 SRCEXT = cpp
 SOURCES = $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
@@ -27,10 +27,8 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 tests:
 	@mkdir -p $(TARGETDIR)
 	@mkdir -p $(BUILDDIR)
-	$(CC) $(CFLAGS) $(INC) -c $(SRCDIR)/OldBook.cpp -o $(BUILDDIR)/OldBook.o
-	$(CC) $(CFLAGS) $(INC) -c $(SRCDIR)/Date.cpp -o $(BUILDDIR)/Date.o
-	$(CC) $(CFLAGS) $(INC) -c $(TESTDIR)/OldBookTest.cpp -o $(BUILDDIR)/test.o
-	$(CC) $(BUILDDIR)/test.o $(BUILDDIR)/Date.o $(BUILDDIR)/OldBook.o -o $(TARGETDIR)/test -lboost_unit_test_framework
+	$(CC) $(CFLAGS) $(INC) -c $(SRCDIR)/Vehicle.cpp -o $(BUILDDIR)/Vehicle.o
+	$(CC) $(BUILDDIR)/Vehicle.o -o $(TARGETDIR)/test -lboost_unit_test_framework
 
 run:
 	./bin/$(TARGET)
