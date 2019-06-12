@@ -50,5 +50,6 @@ BOOST_CHECK_EQUAL(class_output.str(), expected_output.str());
 
 BOOST_AUTO_TEST_CASE(Throw_test)
 { 
-    BOOST_CHECK_THROW(Vehicle Throw("model", 20192), int);
+	
+    BOOST_CHECK_THROW(Vehicle Throw("model", 20201), std::string);
 }
