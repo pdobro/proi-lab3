@@ -1,2 +1,3 @@
 .vscode/*
-.build/*
+.vulcanshop/build/*
+.vulcanshop/bin/*
