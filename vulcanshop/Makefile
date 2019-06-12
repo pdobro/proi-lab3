@@ -29,8 +29,9 @@ tests:
 	@mkdir -p $(BINDIR)
 	@mkdir -p $(BUILDDIR)
 	$(CC) $(CFLAGS) $(INC) -c $(SRCDIR)/Vehicle.cpp -o $(BUILDDIR)/Vehicle.o
+	$(CC) $(CFLAGS) $(INC) -c $(SRCDIR)/Car.cpp -o $(BUILDDIR)/Car.o
 	$(CC) $(CFLAGS) $(INC) -c $(TESTDIR)/carTest.cpp -o $(BUILDDIR)/test.o
-	$(CC) $(BUILDDIR)/test.o $(BUILDDIR)/Vehicle.o -o $(BINDIR)/test -lboost_unit_test_framework
+	$(CC) $(BUILDDIR)/test.o $(BUILDDIR)/Vehicle.o $(BUILDDIR)/Car.o -o $(BINDIR)/test -lboost_unit_test_framework
 
 clean:
 	@echo " Cleaning..."; 
