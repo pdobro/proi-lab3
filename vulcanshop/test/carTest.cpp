@@ -1,17 +1,26 @@
-#define BOOST_TEST_MODULE CAR_TEST
+#define BOOST_TEST_MODULE PROI_proj_4_test
 #include <boost/test/included/unit_test.hpp>
 
 #include "Vehicle.hpp"
-#include <iostream>
 #include <sstream>
+
 
 using namespace boost::unit_test;
 
-BOOST_AUTO_TEST_CASE(constructor_test) {
-	int year[] = {2019, 1983, 1932};
+//g++ -I ../include user_test.cpp -lboost_unit_test_framework
 
-	for (int i = 0; i < 3; i++) {
-		Vehicle newCar(Brand::BMW, "529", year[i]);
-		BOOST_CHECK_EQUAL(newCar.getYear(), year[i]);
+//TData* check = new TData;
+BOOST_AUTO_TEST_CASE(User_Constructor_test)
+{
+
+    std::string model[] = {"a4", "Golf", "320"};
+    int year [] = {2012, 1987, 2002};
+
+    for(int i=0; i<3; i++)
+    {
+	    Vehicle newVehicle(model[i], year[i]);
+	    BOOST_CHECK_EQUAL(newVehicle.getYear(), year[i]);
 	}
+    
+    BOOST_CHECK_THROW(Vehicle Throw("abc", 20192), int);
 }

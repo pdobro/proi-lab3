@@ -1,43 +1,39 @@
+#
+# TODO:
+#
+ 
+CC := g++
+# CC := clang
+SRCDIR := src
+BUILDDIR := build
+BINDIR := bin
+TARGET := bin/runner
+TESTDIR := test
 
-CC = g++
-SRCDIR = src
-BUILDDIR = build
-TARGETDIR = bin
-TESTDIR = test
-TARGET = program
-TESTTARGET = test
-TESTSOURCE = carTest.cpp
-
-SRCEXT = cpp
-SOURCES = $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
-OBJECTS = $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS = -std=c++11 -g -Wall
-TESTFLAG = -lboost_unit_test_framework
-INC = -I include
-
+SRCEXT := cpp
+SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
+OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+CFLAGS := -g -Wall
+#LIB :=
+INC := -I include
 $(TARGET): $(OBJECTS)
 	@echo " Linking..."
-	@mkdir -p $(TARGETDIR)
-	$(CC) $^ -o $(TARGETDIR)/$(TARGET)
+	@mkdir -p $(BINDIR)
+	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 	@mkdir -p $(BUILDDIR)
 	@echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 tests:
-	@mkdir -p $(TARGETDIR)
+	@mkdir -p $(BINDIR)
 	@mkdir -p $(BUILDDIR)
 	$(CC) $(CFLAGS) $(INC) -c $(SRCDIR)/Vehicle.cpp -o $(BUILDDIR)/Vehicle.o
-	$(CC) $(BUILDDIR)/Vehicle.o -o $(TARGETDIR)/test -lboost_unit_test_framework
-
-run:
-	./bin/$(TARGET)
-
-runtests:
-	./bin/$(TESTTARGET)
+	$(CC) $(CFLAGS) $(INC) -c $(TESTDIR)/carTest.cpp -o $(BUILDDIR)/test.o
+	$(CC) $(BUILDDIR)/test.o $(BUILDDIR)/Vehicle.o -o $(BINDIR)/test -lboost_unit_test_framework
 
 clean:
-	@echo " Cleaning...";
-	@echo " $(RM) -r $(BUILDDIR) $(TARGETDIR)"; $(RM) -r $(BUILDDIR) $(TARGETDIR)
+	@echo " Cleaning..."; 
+	@echo " $(RM) -r $(BUILDDIR) $(BINDIR)"; $(RM) -r $(BUILDDIR) $(BINDIR)
 
 .PHONY: clean
