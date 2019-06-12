@@ -4,6 +4,9 @@
 #include <cmath>
 #include "Vehicle.hpp"
  
+#define CURR_YEAR 2019
+#define BEGI_YEAR 1900
+
  using namespace std;
 
 Vehicle::Vehicle()
@@ -16,7 +19,7 @@ Vehicle::Vehicle(string m , int y)
 {
     this->model = m;
     this->year = y;
-    if ( (y < 1900) || (y > 2019) )
+    if ( (y < BEGI_YEAR) || (y > CURR_YEAR) )
     {
         string exception = "wrong year!";
         throw exception;
