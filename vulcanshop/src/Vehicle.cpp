@@ -27,9 +27,9 @@ Vehicle::Vehicle(string m , int y)
 Vehicle::~Vehicle()
 {}
 
-void Vehicle::getYear()
+int Vehicle::getYear()
 {
-    cout<<year;
+    return year;
 }
 
 void Vehicle::showData()

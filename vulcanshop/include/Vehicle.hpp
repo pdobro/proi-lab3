@@ -12,7 +12,7 @@ class Vehicle
     Vehicle(std::string m, int y);
     ~Vehicle();
     
-    void getYear();
+    int getYear();
     virtual void showData();
 };
 

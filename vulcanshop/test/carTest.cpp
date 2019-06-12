@@ -1,4 +1,4 @@
-#define BOOST_TEST_MODULE PROI_proj_4_test
+#define BOOST_TEST_MODULE VEHICLE_TEST
 #include <boost/test/included/unit_test.hpp>
 
 #include "Vehicle.hpp"
@@ -7,20 +7,19 @@
 
 using namespace boost::unit_test;
 
-//g++ -I ../include user_test.cpp -lboost_unit_test_framework
+//g++ -I ../include carTest.cpp -lboost_unit_test_framework
 
-//TData* check = new TData;
-BOOST_AUTO_TEST_CASE(User_Constructor_test)
+BOOST_AUTO_TEST_CASE(Constructor_test)
 {
 
-    std::string model[] = {"a4", "Golf", "320"};
-    int year [] = {2012, 1987, 2002};
+    std::string model = "a4";
+    int year = 2002;
 
-    for(int i=0; i<3; i++)
-    {
-	    Vehicle newVehicle(model[i], year[i]);
-	    BOOST_CHECK_EQUAL(newVehicle.getYear(), year[i]);
-	}
-    
-    BOOST_CHECK_THROW(Vehicle Throw("abc", 20192), int);
+	Vehicle newVehicle(model, year);
+	BOOST_CHECK_EQUAL(newVehicle.getYear(), year);
+}
+
+BOOST_AUTO_TEST_CASE(Throw_test)
+{ 
+    BOOST_CHECK_THROW(Vehicle Throw("model", 20192), int);
 }
